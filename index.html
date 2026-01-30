@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everest Keys</title>
+  <style>
+    :root{
+      --gold:#d4af37;
+      --black:#0b0b0b;
+      --card:#141414;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--black);color:#fff}
+    header{display:flex;align-items:center;gap:16px;padding:18px 24px;border-bottom:1px solid #1f1f1f}
+    header img{height:48px}
+    header h1{font-size:22px;letter-spacing:1px;color:var(--gold)}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
+    .card{background:var(--card);border:1px solid #1f1f1f;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+    .cover{aspect-ratio:3/4;background:#222;display:flex;align-items:center;justify-content:center;color:#777;font-size:14px}
+    .card h3{font-size:15px;margin:10px}
+    .price{margin:0 10px 10px;color:var(--gold);font-weight:bold}
+    .buy{margin:10px;background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px;cursor:pointer;font-weight:bold}
+    .buy:hover{filter:brightness(1.1)}
+    footer{padding:24px;text-align:center;color:#777}
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Coloque sua logo aqui -->
+    <img src="logo.png" alt="Everest Keys" />
+    <h1>EVEREST KEYS</h1>
+  </header>  <main class="container">
+    <div class="grid" id="games"></div>
+  </main>  <footer>
+    © 2026 Everest Keys • Atendimento via WhatsApp
+  </footer>  <script>
+    // EDITE AQUI SEU WHATSAPP
+    const WHATSAPP = '5562982553620'; // ex: 5562999999999
+
+    // LISTA DE JOGOS
+    // Coloque TODOS os jogos aqui (nome e imagem depois)
+    const games = [
+  { name: 'GTA V', image: 'images/gta-v.jpg' },
+  { name: 'Red Dead Redemption 2', image: 'images/rdr2.jpg' },
+  { name: 'FIFA 24', image: 'images/fifa24.jpg' },
+  { name: 'Cyberpunk 2077', image: 'images/cyberpunk2077.jpg' },
+  { name: 'The Witcher 3', image: 'images/witcher3.jpg' },
+  { name: 'EA FC 25', image: 'images/eafc25.jpg' },
+  { name: 'Forza Horizon 5', image: 'images/forza5.jpg' },
+  { name: 'Call of Duty MW III', image: 'images/codmw3.jpg' },
+  { name: 'Assassin’s Creed Valhalla', image: 'images/acvalhalla.jpg' },
+  { name: 'Hogwarts Legacy', image: 'images/hogwarts.jpg' },
+  { name: 'Resident Evil 4 Remake', image: 'images/re4.jpg' },
+  { name: 'Elden Ring', image: 'images/eldenring.jpg' },
+  { name: 'God of War', image: 'images/gow.jpg' },
+  { name: 'God of War Ragnarök', image: 'images/gowragnarok.jpg' },
+  { name: 'Spider-Man Remastered', image: 'images/spiderman.jpg' },
+  { name: 'Spider-Man Miles Morales', image: 'images/milesmorales.jpg' },
+  { name: 'The Last of Us Part I', image: 'images/tlou1.jpg' },
+  { name: 'The Last of Us Part II', image: 'images/tlou2.jpg' },
+  { name: 'Days Gone', image: 'images/daysgone.jpg' },
+  { name: 'Far Cry 6', image: 'images/farcry6.jpg' },
+  { name: 'Mortal Kombat 1', image: 'images/mk1.jpg' },
+  { name: 'Tekken 8', image: 'images/tekken8.jpg' },
+  { name: 'NBA 2K24', image: 'images/nba2k24.jpg' },
+  { name: 'Need for Speed Unbound', image: 'images/nfsunbound.jpg' },
+  { name: 'Rainbow Six Siege', image: 'images/r6.jpg' },
+  { name: 'Battlefield 2042', image: 'images/bf2042.jpg' },
+  { name: 'ARK Survival Evolved', image: 'images/ark.jpg' },
+  { name: 'Rust', image: 'images/rust.jpg' },
+  { name: 'Terraria', image: 'images/terraria.jpg' },
+  { name: 'Stardew Valley', image: 'images/stardew.jpg' }
+];
+
+    const grid = document.getElementById('games');
+
+    games.forEach(g => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="cover">Capa do Jogo</div>
+        <h3>${g.name}</h3>
+        <div class="price">R$ 19,90</div>
+        <button class="buy">COMPRAR</button>
+      `;
+      card.querySelector('.buy').onclick = () => {
+        const msg = encodeURIComponent(`Olá, quero comprar ${g.name} por R$19,90 na Everest Keys`);
+        window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+      };
+      grid.appendChild(card);
+    });
+  </script></body>
+</html>
